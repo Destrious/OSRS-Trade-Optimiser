@@ -19,7 +19,7 @@ public class Item {
     private int id;
     private boolean members;
     private int lowalch;
-    private int limit;
+    private int buyLimit;
     private int value;
     private int highalch;
     private String icon;
