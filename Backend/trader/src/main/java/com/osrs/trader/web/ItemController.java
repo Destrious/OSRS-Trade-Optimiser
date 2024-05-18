@@ -1,6 +1,7 @@
 package com.osrs.trader.web;
 
 import com.osrs.trader.dto.ItemDto;
+import com.osrs.trader.dto.ProfitDto;
 import com.osrs.trader.service.ItemService;
 import com.osrs.trader.service.ScheduledService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,12 +25,11 @@ public class ItemController {
         return itemService.getAllItems();
     }
 
-//    @GetMapping("/profit")
-//    public Mono<List<ItemDto>> getProfitableItems(@RequestParam int limit) {
-//        return itemService.getProfitableItems(limit);
-//    }
+    @GetMapping("/profit")
+    public Mono<List<ProfitDto>> getProfitableItems(@RequestParam int limit, @RequestParam boolean percentage) {
+        return itemService.getProfitableItems(limit, percentage);
+    }
 
-    // post request to refresh
     @PostMapping("/refresh")
     public void refreshMapping() {
         scheduledService.refreshMapping();

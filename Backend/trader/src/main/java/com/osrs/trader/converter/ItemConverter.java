@@ -18,4 +18,18 @@ public class ItemConverter {
                 .name(itemDto.getName())
                 .build();
     }
+
+    public static ItemDto toDto(Item item) {
+        return ItemDto.builder()
+                .examine(item.getExamine())
+                .id(item.getId())
+                .members(item.isMembers())
+                .lowalch(item.getLowalch())
+                .buyLimit(item.getBuyLimit())
+                .value(item.getValue())
+                .highalch(item.getHighalch())
+                .icon(item.getIcon())
+                .name(item.getName())
+                .build();
+    }
 }
