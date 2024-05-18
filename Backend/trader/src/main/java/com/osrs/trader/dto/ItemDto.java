@@ -1,5 +1,6 @@
 package com.osrs.trader.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,10 +12,12 @@ public class ItemDto {
     private int id;
     private boolean members;
     private int lowalch;
-    private int limit;
+    @JsonProperty("limit")
+    private int buyLimit;
     private int value;
     private int highalch;
     private String icon;
     private String name;
+
 
 }
