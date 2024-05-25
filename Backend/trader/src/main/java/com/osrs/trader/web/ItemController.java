@@ -22,8 +22,8 @@ public class ItemController {
     ScheduledService scheduledService;
 
     @GetMapping("/")
-    public Mono<List<LatestDto>> getAllItems(@RequestParam int limit) {
-        return itemService.getLatestPrices(limit);
+    public Mono<List<LatestDto>> getAllItems() {
+        return itemService.getLatestPrices();
     }
 
     @GetMapping("/mapping")
