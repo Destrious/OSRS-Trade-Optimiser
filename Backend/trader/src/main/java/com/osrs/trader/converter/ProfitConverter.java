@@ -1,22 +1,22 @@
 package com.osrs.trader.converter;
 
 import com.osrs.trader.dto.ItemDto;
-import com.osrs.trader.dto.LatestDto;
+import com.osrs.trader.dto.BaseDto;
 import com.osrs.trader.dto.ProfitDto;
 
 public class ProfitConverter {
-    public static ProfitDto toDto(LatestDto latestDto, ItemDto itemDto) {
-        int profit = latestDto.getSellPrice() - latestDto.getBuyPrice();
-        float tax = 0.01f * latestDto.getBuyPrice();
+    public static ProfitDto toDto(BaseDto baseDto, ItemDto itemDto) {
+        int profit = baseDto.getSellPrice() - baseDto.getBuyPrice();
+        float tax = 0.01f * baseDto.getBuyPrice();
         return ProfitDto.builder()
-                .id(latestDto.getId())
+                .id(baseDto.getId())
                 .name(itemDto.getName())
                 .icon(itemDto.getIcon())
-                .buyPrice(latestDto.getBuyPrice())
-                .sellPrice(latestDto.getSellPrice())
+                .buyPrice(baseDto.getBuyPrice())
+                .sellPrice(baseDto.getSellPrice())
                 .profitRaw((int) (profit - tax))
-                .profitPercent(((profit - tax) / latestDto.getBuyPrice()) * 100)
-                .latestSale(latestDto.getLowTime() < latestDto.getHighTime() ? latestDto.getLowTime() : latestDto.getHighTime())
+                .profitPercent(((profit - tax) / baseDto.getBuyPrice()) * 100)
+                .latestSale(baseDto.getLowTime() < baseDto.getHighTime() ? baseDto.getLowTime() : baseDto.getHighTime())
                 .build();
     }
 }
