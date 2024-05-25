@@ -12,9 +12,9 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LatestDataDto {
+public class BaseDataDto {
 
     @JsonProperty("data")
-    private Map<String, LatestDto> data;
+    private Map<String, BaseDto> data;
 
 }

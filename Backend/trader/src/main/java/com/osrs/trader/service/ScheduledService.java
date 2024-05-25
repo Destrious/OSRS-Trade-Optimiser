@@ -17,7 +17,7 @@ public class ScheduledService {
     @Scheduled(fixedRate = 360000)
     public void refreshMapping() {
         System.out.println("Refreshing mapping");
-        itemService.getAllItems()
+        itemService.getItemMapping()
                 .flatMapIterable(Function.identity())
                 .map(ItemConverter::toEntity)
                 .collectList()
