@@ -1,6 +1,7 @@
 package com.osrs.trader.web;
 
 import com.osrs.trader.dto.ItemDto;
+import com.osrs.trader.dto.LatestDto;
 import com.osrs.trader.dto.ProfitDto;
 import com.osrs.trader.service.ItemService;
 import com.osrs.trader.service.ScheduledService;
@@ -21,8 +22,13 @@ public class ItemController {
     ScheduledService scheduledService;
 
     @GetMapping("/")
-    public Mono<List<ItemDto>> getAllItems() {
-        return itemService.getAllItems();
+    public Mono<List<LatestDto>> getAllItems() {
+        return itemService.getLatestPrices();
+    }
+
+    @GetMapping("/mapping")
+    public Mono<List<ItemDto>> getItemMapping() {
+        return itemService.getItemMapping();
     }
 
     @GetMapping("/profit")

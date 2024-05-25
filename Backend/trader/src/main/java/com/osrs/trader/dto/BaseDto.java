@@ -6,14 +6,14 @@ import lombok.Data;
 
 @Data
 @Builder
-public class LatestDto {
+public class BaseDto {
+
     private int id;
-    private String name;
-    private String icon;
-    @JsonProperty("low")
-    private int buyPrice;
     @JsonProperty("high")
     private int sellPrice;
+    @JsonProperty("low")
+    private int buyPrice;
     private long highTime;
     private long lowTime;
+
 }
