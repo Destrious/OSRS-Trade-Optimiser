@@ -26,7 +26,7 @@ public class ItemService {
         this.webClient = webClientBuilder.baseUrl("https://prices.runescape.wiki/api/v1/osrs").build();
     }
 
-    public Mono<List<LatestDto>> getLatestPrices() {
+    public Mono<List<LatestDto>> getLatestPrices(int limit) {
         Mono<List<BaseDto>> baseDtos = this.webClient.get()
                 .uri("/latest")
                 .retrieve()
@@ -45,6 +45,7 @@ public class ItemService {
                         .map(itemDto -> LatestConverter.toDto(baseDto, itemDto))
                         .stream())
                 .sorted(Comparator.comparing(LatestDto::getName))
+                .limit(limit)
                 .collect(Collectors.toList());
 
         return Mono.just(latestDtos);
