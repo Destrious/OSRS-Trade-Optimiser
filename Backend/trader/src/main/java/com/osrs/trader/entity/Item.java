@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Item {
 
-    private String examine;
     @Id
     private int id;
-    private boolean members;
-    private int lowalch;
+    private boolean isMembers;
     private int buyLimit;
     private int value;
+    private int lowalch;
     private int highalch;
     private String icon;
     private String name;
+    private String examine;
 
 }

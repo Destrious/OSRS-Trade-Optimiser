@@ -8,16 +8,17 @@ import lombok.Data;
 @Builder
 public class ItemDto {
 
-    private String examine;
     private int id;
-    private boolean members;
-    private int lowalch;
+    @JsonProperty("members")
+    private boolean isMembers;
     @JsonProperty("limit")
     private int buyLimit;
     private int value;
+    private int lowalch;
     private int highalch;
     private String icon;
     private String name;
+    private String examine;
 
 
 }

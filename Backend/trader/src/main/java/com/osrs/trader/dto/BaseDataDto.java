@@ -15,6 +15,6 @@ import java.util.Map;
 public class BaseDataDto {
 
     @JsonProperty("data")
-    private Map<String, BaseDto> data;
+    private Map<String, PriceDto> data;
 
 }

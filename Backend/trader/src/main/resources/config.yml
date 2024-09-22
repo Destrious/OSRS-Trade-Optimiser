@@ -1,0 +1,3 @@
+trader:
+  api:
+    base-url: "https://prices.runescape.wiki/api/v1/osrs"
