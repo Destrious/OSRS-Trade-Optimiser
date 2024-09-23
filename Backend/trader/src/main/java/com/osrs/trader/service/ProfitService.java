@@ -18,7 +18,7 @@ public class ProfitService {
 
     public Mono<List<ProfitDto>> getProfitMargins() {
         return Mono.fromCallable(() -> {
-            List<ProfitDto> profitMargins = priceRepository.getProfitMargins();
+            List<ProfitDto> profitMargins = priceRepository.getProfitMarginsWithItemNames();
             profitMargins.sort(Comparator.comparingInt(ProfitDto::getProfitRaw).reversed());
             return profitMargins;
         });

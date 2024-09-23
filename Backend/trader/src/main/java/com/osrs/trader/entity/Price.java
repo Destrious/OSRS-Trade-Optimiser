@@ -1,10 +1,7 @@
 package com.osrs.trader.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +22,9 @@ public class Price {
     private int sellPrice;
     private long buyTime;
     private long sellTime;
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
 
 
 }
