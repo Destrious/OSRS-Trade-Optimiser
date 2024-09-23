@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { importImage } from '../images';
 import Pagination from '@mui/material/Pagination';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 const PricingTableComponent = () => {
     const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ const PricingTableComponent = () => {
         const fetchPosts = async () => {
             setLoading(true);
             try {
-                const response = await fetch("http://localhost:8080/items/?limit=50")
+                const response = await fetch("http://localhost:8080/profit/")
                 const data = await response.json();
                 setData(data);
                 setLoading(false);
@@ -49,10 +49,11 @@ const PricingTableComponent = () => {
                         <TableCell>ID</TableCell>
                         <TableCell>Image</TableCell>
                         <TableCell>Item Name</TableCell>
-                        <TableCell>Item High</TableCell>
-                        <TableCell>High Time</TableCell>
-                        <TableCell>Item Low</TableCell>
-                        <TableCell>Low Time</TableCell>
+                        <TableCell>Buy Price</TableCell>
+                        <TableCell>Buy Time</TableCell>
+                        <TableCell>Sell Price</TableCell>
+                        <TableCell>Sell Time</TableCell>
+                        <TableCell>Profit</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -61,10 +62,11 @@ const PricingTableComponent = () => {
                             <TableCell>{item.id}</TableCell>
                             <TableCell><img src={images[item.icon]} alt={item.icon} height="50" /></TableCell>
                             <TableCell>{item.name}</TableCell>
-                            <TableCell>{item.high}</TableCell>
-                            <TableCell>{new Date(item.highTime * 1000).toLocaleString()}</TableCell>
-                            <TableCell>{item.low}</TableCell>
-                            <TableCell>{new Date(item.lowTime * 1000).toLocaleString()}</TableCell>
+                            <TableCell>{item.buyPrice}</TableCell>
+                            <TableCell>{new Date(item.buyTime * 1000).toLocaleString()}</TableCell>
+                            <TableCell>{item.sellPrice}</TableCell>
+                            <TableCell>{new Date(item.sellTime * 1000).toLocaleString()}</TableCell>
+                            <TableCell>{item.profitRaw}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
