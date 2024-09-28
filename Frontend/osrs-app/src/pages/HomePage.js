@@ -4,9 +4,7 @@ import PricingTableComponent from "../components/PricingTableComponent";
 const HomePage = () => {
     return (
         <div style={{ margin: '20px' }}>
-            <h1>Current Item Prices</h1>
-            <p>Click on the "Log in" button in the top right corner to log in.</p>
-
+            <h1>Profitable Items</h1>
             <PricingTableComponent />
         </div>
     );
