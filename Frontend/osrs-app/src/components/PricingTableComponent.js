@@ -3,7 +3,6 @@ import { importImage } from '../images';
 import Pagination from '@mui/material/Pagination';
 import { styled, InputLabel, MenuItem, FormControl, Select, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import SearchFilterCheckbox from './SearchFilterCheckbox';
-import './PricingTableComponent.css';
 
 const PricingTableComponent = () => {
     const [data, setData] = useState([]);
